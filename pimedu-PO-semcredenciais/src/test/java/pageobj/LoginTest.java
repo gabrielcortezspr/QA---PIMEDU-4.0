@@ -13,17 +13,24 @@ import pageobj.pages.LoginPage;
 import pageobj.support.Web;
 
 /**
- * Unit test for simple App.
+ * Teste automatizado de login utilizando Page Object Model.
+ * Lê as credenciais de um arquivo externo e executa o fluxo de login.
  */
 public class LoginTest {
 
     private WebDriver navegador;
 
+    /**
+     * Inicializa o navegador antes de cada teste.
+     */
     @Before
     public void setUp(){
         navegador = Web.createChrome();
     }
 
+    /**
+     * Testa o login com credenciais válidas.
+     */
     @Test
     public void login() throws IOException {
         Properties credentials = loadCredentials("src\\credentials.txt");
@@ -38,6 +45,9 @@ public class LoginTest {
         .loginRealizado();
     }
 
+    /**
+     * Lê as credenciais do arquivo externo.
+     */
     private Properties loadCredentials(String filePath) throws IOException {
         Properties properties = new Properties();
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
