@@ -1,0 +1,5 @@
+target/
+credentials.txt
+.vscode/
+.idea/
+*.iml
